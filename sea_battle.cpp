@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int ships_count = 2;
+const int ships_count = 5;
 char alphabet[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 int player_field[10][10];
 int computer_field[10][10];
@@ -265,10 +265,10 @@ int main() {
 
         if (computer_field[coords[0]][coords[1]] == 1) {
             computer_field[coords[0]][coords[1]] = 2;
-            result = string(1, alphabet[coords[1]]) + to_string(coords[0]) + " you \033[1;32mhit\033[0m!";
+            result = string(1, alphabet[coords[1]]) + to_string(coords[0] + 1) + " you \033[1;32mhit\033[0m!";
         } else if (computer_field[coords[0]][coords[1]] == 0) {
             computer_field[coords[0]][coords[1]] = 3;
-            result = string(1, alphabet[coords[1]]) + to_string(coords[0]) + " you \033[1;31mmissed\033[0m!";
+            result = string(1, alphabet[coords[1]]) + to_string(coords[0] + 1) + " you \033[1;31mmissed\033[0m!";
         }
 
         player_ships_count = get_ships_count(false);
